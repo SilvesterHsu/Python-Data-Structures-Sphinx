@@ -10,11 +10,8 @@ Welcome to Python-Data-Structures-Sphinx's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   02-Structure/Chapter-6-Strings.md
+   02-Structure/Chapter-7-Files.md
+   02-Structure/Chapter-8-Lists.md
+   02-Structure/Chapter-9-Dictionaries.md
+   02-Structure/Chapter-10-Tuples.md
