@@ -1,0 +1,486 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>第 8 章：列表 &mdash; Python-Data-Structures-Sphinx 1.0.0 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第 9 章：字典" href="Chapter-9-Dictionaries.html" />
+    <link rel="prev" title="第 7 章：文件" href="Chapter-7-Files.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python-Data-Structures-Sphinx
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Chapter-6-Strings.html">第 6 章：字符串</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter-7-Files.html">第 7 章：文件</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">第 8 章：列表</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">创建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">数据选择</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">连接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">长度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">切片</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">逻辑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">排序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">常用内建函数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">字典</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">附加</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">列表与字符串</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter-9-Dictionaries.html">第 9 章：字典</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter-10-Tuples.html">第 10 章：元组</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python-Data-Structures-Sphinx</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>第 8 章：列表</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/02-Structure/Chapter-8-Lists.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>第 8 章：列表<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>创建<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>列表用于存储和修改数据，并通过<code class="docutils literal notranslate"><span class="pre">[</span></code> <code class="docutils literal notranslate"><span class="pre">]</span></code>来创建。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">76</span><span class="p">]</span>
+</pre></div>
+</div>
+<ul>
+<li><p>列表中可录入任何python数据类型</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">L_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">76</span><span class="p">]</span>
+<span class="n">L_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>列表可以为空</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">L_3</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">L_3</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p>列表内容有序</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">76</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>数据选择<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>列表和字符串相同，通过索引<code class="docutils literal notranslate"><span class="pre">index</span></code>进行选取。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">friends</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;Joseph&#39;</span><span class="p">,</span> <span class="s1">&#39;Glenn&#39;</span><span class="p">,</span> <span class="s1">&#39;Sally&#39;</span> <span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">friends</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">Glenn</span>
+</pre></div>
+</div>
+<p>与<code class="docutils literal notranslate"><span class="pre">string</span></code>相比，<code class="docutils literal notranslate"><span class="pre">string</span></code>内部数据不能改变，而<code class="docutils literal notranslate"><span class="pre">list</span></code>可以改变内部数据</p>
+<ul class="simple">
+<li><p>修改<code class="docutils literal notranslate"><span class="pre">string</span></code>数据</p></li>
+</ul>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span> <span class="o">=</span> <span class="s1">&#39;Banana&#39;</span>
+<span class="n">fruit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="n">bc78b004470</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">1</span> <span class="n">fruit</span> <span class="o">=</span> <span class="s1">&#39;Banana&#39;</span>
+<span class="o">----&gt;</span> <span class="mi">2</span> <span class="n">fruit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>修改<code class="docutils literal notranslate"><span class="pre">list</span></code>数据</p></li>
+</ul>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">lotto</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">63</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lotto</span><span class="p">)</span>
+<span class="n">lotto</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lotto</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">63</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">63</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>连接<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">+</span></code> 来连接2个列表。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="k">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>长度<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>内建函数 <code class="docutils literal notranslate"><span class="pre">len()</span></code> 可用来计算列表长度。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;joe&#39;</span><span class="p">,</span> <span class="mi">99</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>切片<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>与<code class="docutils literal notranslate"><span class="pre">string</span></code>相同</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">41</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>注：</strong> 切片位置到第二个数之前，不包括第二个数。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">t</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>逻辑<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">some</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span>
+<span class="mi">9</span> <span class="ow">in</span> <span class="n">some</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="mi">15</span> <span class="ow">in</span> <span class="n">some</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">False</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="mi">20</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">some</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>排序<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>列表内部数据有序，且可以排序。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">friends</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;Joseph&#39;</span><span class="p">,</span> <span class="s1">&#39;Glenn&#39;</span><span class="p">,</span> <span class="s1">&#39;Sally&#39;</span> <span class="p">]</span>
+<span class="n">friends</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">friends</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;Glenn&#39;</span><span class="p">,</span> <span class="s1">&#39;Joseph&#39;</span><span class="p">,</span> <span class="s1">&#39;Sally&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>常用内建函数<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">len()</span></code>:</p></li>
+</ul>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max()</span></code>:</p></li>
+</ul>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">74</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">min()</span></code>:</p></li>
+</ul>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sum()</span></code>:</p></li>
+</ul>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">154</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>字典<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<p>列表内建函数库<a class="reference external" href="http://docs.python.org/tutorial/datastructures.html">Library</a>。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;__add__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__class__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__contains__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__delattr__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__delitem__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__dir__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__eq__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__format__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__ge__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__getattribute__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__getitem__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__gt__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__hash__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__iadd__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__imul__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__init__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__init_subclass__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__iter__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__le__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__len__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__lt__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__mul__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__ne__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__new__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__reduce__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__reduce_ex__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__repr__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__reversed__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__rmul__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__setattr__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__setitem__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__sizeof__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__str__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;__subclasshook__&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;append&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;clear&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;copy&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;count&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;extend&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;index&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;insert&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;pop&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;remove&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;reverse&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;sort&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>附加<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id12">
+<h3>列表与字符串<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">split</span></code>可以将字符串分成几部分并生成字符串列表。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">abc</span> <span class="o">=</span> <span class="s1">&#39;With three words&#39;</span>
+<span class="n">abc</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;With&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;words&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Chapter-9-Dictionaries.html" class="btn btn-neutral float-right" title="第 9 章：字典" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Chapter-7-Files.html" class="btn btn-neutral float-left" title="第 7 章：文件" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, seel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

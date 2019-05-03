@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>第 6 章：字符串 &mdash; Python-Data-Structures-Sphinx 1.0.0 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第 7 章：文件" href="Chapter-7-Files.html" />
+    <link rel="prev" title="Welcome to Python-Data-Structures-Sphinx’s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python-Data-Structures-Sphinx
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">第 6 章：字符串</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">创建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">字符串连接</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">字符串转换</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">字符串选择</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">选择</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">切片</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">字符串长度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">逻辑判断</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">比较</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">字符查找</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">抹掉空格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">字符串字典</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter-7-Files.html">第 7 章：文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter-8-Lists.html">第 8 章：列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter-9-Dictionaries.html">第 9 章：字典</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter-10-Tuples.html">第 10 章：元组</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python-Data-Structures-Sphinx</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>第 6 章：字符串</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/02-Structure/Chapter-6-Strings.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>第 6 章：字符串<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>创建<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">string</span></code>可由单双引号创建，<code class="docutils literal notranslate"><span class="pre">''</span></code> 或 <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">str1</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>
+<span class="n">str2</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>字符串连接<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>使用 <code class="docutils literal notranslate"><span class="pre">+</span></code> 来连接2个字符串。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">str1</span> <span class="o">=</span> <span class="s1">&#39;Hello&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">str2</span> <span class="o">=</span> <span class="s2">&quot;World&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">str1</span><span class="o">+</span><span class="n">str2</span>
+<span class="s1">&#39;HelloWorld&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>字符串转换<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>通过 <code class="docutils literal notranslate"><span class="pre">int()</span></code> 将 <code class="docutils literal notranslate"><span class="pre">string</span> </code> 转换为 <code class="docutils literal notranslate"><span class="pre">int</span></code> 类。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; str3 = &#39;123&#39;
+&gt;&gt;&gt; type(str3)
+&lt;class &#39;str&#39;&gt;
+&gt;&gt;&gt; num = int(str3)
+&gt;&gt;&gt; type(num)
+&lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+<p>!!! tip
+<code class="docutils literal notranslate"><span class="pre">int()</span></code> 常于 <code class="docutils literal notranslate"><span class="pre">input()</span></code> 连用。
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">&gt;&gt;&gt;</span> <span class="pre">num</span> <span class="pre">=</span> <span class="pre">int(input('number</span> <span class="pre">=</span> <span class="pre">'))</span> <span class="pre">number</span> <span class="pre">=</span> <span class="pre">123</span> <span class="pre">&gt;&gt;&gt;</span> <span class="pre">type(num)</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;</span> </code></p>
+<p>!!! note “Example”
+$output = input + 1$
+<code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">&gt;&gt;&gt;</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">input(&quot;number</span> <span class="pre">=</span> <span class="pre">&quot;)</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">number</span> <span class="pre">=</span> <span class="pre">123</span> <span class="pre">Traceback</span> <span class="pre">(most</span> <span class="pre">recent</span> <span class="pre">call</span> <span class="pre">last):</span> <span class="pre">File</span> <span class="pre">&quot;&lt;stdin&gt;&quot;,</span> <span class="pre">line</span> <span class="pre">1,</span> <span class="pre">in</span> <span class="pre">&lt;module&gt;</span> <span class="pre">TypeError:</span> <span class="pre">can</span> <span class="pre">only</span> <span class="pre">concatenate</span> <span class="pre">str</span> <span class="pre">(not</span> <span class="pre">&quot;int&quot;)</span> <span class="pre">to</span> <span class="pre">str</span> </code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```Python
+&gt;&gt;&gt; x = input(&quot;number = &quot;)
+number = 123
+&gt;&gt;&gt; x = int(x) + 1
+&gt;&gt;&gt; x
+124
+```
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>字符串选择<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3>选择<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>通过索引 <code class="docutils literal notranslate"><span class="pre">index</span></code> 和方括号 <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> 来查看字符串内部数据。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">fruit</span> <span class="o">=</span> <span class="s1">&#39;banana&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fruit</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+<span class="s1">&#39;a&#39;</span>
+</pre></div>
+</div>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code> 必须为整数</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code> 必须从 <code class="docutils literal notranslate"><span class="pre">0</span></code> 开始</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code> 可以是运算操作</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">fruit</span> <span class="o">=</span> <span class="s1">&#39;banana&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">fruit</span><span class="p">[</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="s1">&#39;a&#39;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>!!! warning
+如果索引 <code class="docutils literal notranslate"><span class="pre">index</span></code> 超出字符串长度，将会导致错误。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; ```python
+  &gt;&gt;&gt; fruit = &#39;banana&#39;
+  &gt;&gt;&gt; fruit[10]
+  Traceback (most recent call last):
+    File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  IndexError: string index out of range
+  ```
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>切片<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Monty Python&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">Mont</span>
+</pre></div>
+</div>
+<ul>
+<li><p>切片位置到第二个数之前，不包括第二个数。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>
+<span class="n">P</span>
+</pre></div>
+</div>
+</li>
+<li><p>如果索引超出范围，切片会在字符串末尾结束。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">Python</span>
+</pre></div>
+</div>
+</li>
+<li><p>左、右缺省将被分别视作从头开始和到末尾结束。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;Monty Python&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+<span class="go">Mo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">8</span><span class="p">:])</span>
+<span class="go">thon</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">[:])</span>
+<span class="go">Monty Python</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>字符串长度<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>内建函数 <code class="docutils literal notranslate"><span class="pre">len()</span></code> 可用来计算字符串长度。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">fruit</span> <span class="o">=</span> <span class="s1">&#39;banana&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fruit</span><span class="p">))</span>
+<span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>逻辑判断<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; fruit = &#39;banana&#39;
+&gt;&gt;&gt; &#39;n&#39; in fruit
+True
+&gt;&gt;&gt; &#39;m&#39; in fruit
+False
+&gt;&gt;&gt; &#39;nan&#39; in fruit
+True
+&gt;&gt;&gt; if &#39;a&#39; in fruit :
+...     print(&#39;Found it!&#39;)
+...
+Found it!
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>比较<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="s1">&#39;banana&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;All right, bananas.&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">word</span> <span class="o">&lt;</span> <span class="s1">&#39;banana&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Your word,&#39;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s1">&#39;, comes before banana.&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">word</span> <span class="o">&gt;</span> <span class="s1">&#39;banana&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Your word,&#39;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s1">&#39;, comes after banana.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;All right, bananas.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>字符查找<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>我们通过 <code class="docutils literal notranslate"><span class="pre">find()</span></code> 来寻找字符串中的子字符串。</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">find()</span></code> 寻找子字符串第一次出现的位置。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">fruit</span> <span class="o">=</span> <span class="s1">&#39;banana&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">fruit</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;na&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+<span class="mi">2</span>
+</pre></div>
+</div>
+</li>
+<li><p>如果子字符串未被找到，则 <code class="docutils literal notranslate"><span class="pre">find()</span></code> 返回 <code class="docutils literal notranslate"><span class="pre">-1</span></code>。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">aa</span> <span class="o">=</span> <span class="n">fruit</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">aa</span><span class="p">)</span>
+<span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2>抹掉空格<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">strip()</span></code> 同时抹掉开头和结尾的空格（子字符串）。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">greet</span> <span class="o">=</span> <span class="s1">&#39;   Hello Bob  &#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">greet</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="s1">&#39;Hello Bob&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lstrip()</span></code> 和 <code class="docutils literal notranslate"><span class="pre">rstrip()</span></code> 分别抹掉开头和结尾的空格（子字符串）。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">greet</span> <span class="o">=</span> <span class="s1">&#39;   Hello Bob  &#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">greet</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
+<span class="s1">&#39;Hello Bob  &#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">greet</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="s1">&#39;   Hello Bob&#39;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h2>字符串字典<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<p>字符串内建函数库 <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">Library</a>。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; stuff = &#39;Hello world&#39;
+&gt;&gt;&gt; type(stuff)
+&lt;class &#39;str&#39;&gt;
+&gt;&gt;&gt; dir(stuff)
+[&#39;capitalize&#39;, &#39;casefold&#39;, &#39;center&#39;, &#39;count&#39;, &#39;encode&#39;, &#39;endswith&#39;, &#39;expandtabs&#39;, &#39;find&#39;, &#39;format&#39;, &#39;format_map&#39;, &#39;index&#39;, &#39;isalnum&#39;, &#39;isalpha&#39;, &#39;isdecimal&#39;, &#39;isdigit&#39;, &#39;isidentifier&#39;, &#39;islower&#39;, &#39;isnumeric&#39;, &#39;isprintable&#39;, &#39;isspace&#39;, &#39;istitle&#39;, &#39;isupper&#39;, &#39;join&#39;, &#39;ljust&#39;, &#39;lower&#39;, &#39;lstrip&#39;, &#39;maketrans&#39;, &#39;partition&#39;, &#39;replace&#39;, &#39;rfind&#39;, &#39;rindex&#39;, &#39;rjust&#39;, &#39;rpartition&#39;, &#39;rsplit&#39;, &#39;rstrip&#39;, &#39;split&#39;, &#39;splitlines&#39;, &#39;startswith&#39;, &#39;strip&#39;, &#39;swapcase&#39;, &#39;title&#39;, &#39;translate&#39;, &#39;upper&#39;, &#39;zfill&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Chapter-7-Files.html" class="btn btn-neutral float-right" title="第 7 章：文件" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to Python-Data-Structures-Sphinx’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, seel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

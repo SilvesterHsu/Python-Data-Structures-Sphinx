@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>第 7 章：文件 &mdash; Python-Data-Structures-Sphinx 1.0.0 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第 8 章：列表" href="Chapter-8-Lists.html" />
+    <link rel="prev" title="第 6 章：字符串" href="Chapter-6-Strings.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python-Data-Structures-Sphinx
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Chapter-6-Strings.html">第 6 章：字符串</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">第 7 章：文件</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">创建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">序列读取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">整个文件读取</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">扩展</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">练习</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter-8-Lists.html">第 8 章：列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter-9-Dictionaries.html">第 9 章：字典</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter-10-Tuples.html">第 10 章：元组</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python-Data-Structures-Sphinx</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>第 7 章：文件</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/02-Structure/Chapter-7-Files.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>第 7 章：文件<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>创建<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>句柄<code class="docutils literal notranslate"><span class="pre">handle</span></code>由函数<code class="docutils literal notranslate"><span class="pre">open()</span></code>创建。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>|   模式    |                                   描述                                   |
+|:———:|:————————————————————————:|
+| r（默认） |                以只读方式打开文件，指针将会放在文件的开头             |
+|     w     | 打开一个文件只用于写入，并从开头开始编辑，如果该文件不存在，创建新文件。 |
+<strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fhand</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;mbox.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>句柄<code class="docutils literal notranslate"><span class="pre">handle</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">_io</span><span class="o">.</span><span class="n">TextIOWrapper</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;mbox.txt&#39;</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>示例文件 <code class="docutils literal notranslate"><span class="pre">this.txt</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">Zen</span> <span class="n">of</span> <span class="n">Python</span><span class="p">,</span> <span class="n">by</span> <span class="n">Tim</span> <span class="n">Peters</span>
+
+<span class="n">Beautiful</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">ugly</span><span class="o">.</span>
+<span class="n">Explicit</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">implicit</span><span class="o">.</span>
+<span class="n">Simple</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="nb">complex</span><span class="o">.</span>
+<span class="n">Complex</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">complicated</span><span class="o">.</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>计算机中，文本文件的每行末尾都有换行符（newline）<code class="docutils literal notranslate"><span class="pre">\n</span></code>。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">Zen</span> <span class="n">of</span> <span class="n">Python</span><span class="p">,</span> <span class="n">by</span> <span class="n">Tim</span> <span class="n">Peters</span>\<span class="n">n</span>
+\<span class="n">n</span>
+<span class="n">Beautiful</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">ugly</span><span class="o">.</span>\<span class="n">n</span>
+<span class="n">Explicit</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">implicit</span><span class="o">.</span>\<span class="n">n</span>
+<span class="n">Simple</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="nb">complex</span><span class="o">.</span>\<span class="n">n</span>
+<span class="n">Complex</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">complicated</span><span class="o">.</span>\<span class="n">n</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>序列读取<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>文件中的每一行都是字符串，所以字符串共同构成<strong>序列</strong>。</p>
+<ul class="simple">
+<li><p>有多少行，就有多少个字符串</p></li>
+<li><p>序列存在先后顺序</p></li>
+</ul>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">xfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;this.txt&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cheese</span> <span class="ow">in</span> <span class="n">xfile</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">cheese</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>注：</strong> 每一个字符串的末尾是换行符<code class="docutils literal notranslate"><span class="pre">\n</span></code>，同时<code class="docutils literal notranslate"><span class="pre">print()</span></code>也会自动换行，因此打印出来的字符串之间会空一行。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">Zen</span> <span class="n">of</span> <span class="n">Python</span><span class="p">,</span> <span class="n">by</span> <span class="n">Tim</span> <span class="n">Peters</span>
+
+
+
+<span class="n">Beautiful</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">ugly</span><span class="o">.</span>
+
+<span class="n">Explicit</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">implicit</span><span class="o">.</span>
+
+<span class="n">Simple</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="nb">complex</span><span class="o">.</span>
+
+<span class="n">Complex</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">complicated</span><span class="o">.</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>整个文件读取<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>将整个文件读入<strong>一个字符串</strong>。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">fhand</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;this.txt&#39;</span><span class="p">)</span>
+<span class="n">inp</span> <span class="o">=</span> <span class="n">fhand</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">inp</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">Zen</span> <span class="n">of</span> <span class="n">Python</span><span class="p">,</span> <span class="n">by</span> <span class="n">Tim</span> <span class="n">Peters</span>
+
+<span class="n">Beautiful</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">ugly</span><span class="o">.</span>
+<span class="n">Explicit</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">implicit</span><span class="o">.</span>
+<span class="n">Simple</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="nb">complex</span><span class="o">.</span>
+<span class="n">Complex</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">complicated</span><span class="o">.</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>扩展<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">open()</span></code>之后需要<code class="docutils literal notranslate"><span class="pre">close()</span></code>:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">fhand</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;this.txt&#39;</span><span class="p">)</span>
+<span class="n">fhand</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>但常于<code class="docutils literal notranslate"><span class="pre">with</span></code>连用，可不用进行<code class="docutils literal notranslate"><span class="pre">close()</span></code>操作。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;this.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fhand</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">fhand</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>练习<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>读取<code class="docutils literal notranslate"><span class="pre">this.txt</span></code>的前5行。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;this.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fhand</span><span class="p">:</span>
+    <span class="n">inp</span> <span class="o">=</span> <span class="n">fhand</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">inp</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">Zen</span> <span class="n">of</span> <span class="n">Python</span><span class="p">,</span> <span class="n">by</span> <span class="n">Tim</span> <span class="n">Peters</span>
+
+<span class="n">Beautiful</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">ugly</span><span class="o">.</span>
+<span class="n">Explicit</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">implicit</span><span class="o">.</span>
+<span class="n">Simple</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="nb">complex</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Chapter-8-Lists.html" class="btn btn-neutral float-right" title="第 8 章：列表" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Chapter-6-Strings.html" class="btn btn-neutral float-left" title="第 6 章：字符串" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, seel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

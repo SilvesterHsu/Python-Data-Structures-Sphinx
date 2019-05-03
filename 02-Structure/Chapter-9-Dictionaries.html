@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>第 9 章：字典 &mdash; Python-Data-Structures-Sphinx 1.0.0 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第 10 章：元组" href="Chapter-10-Tuples.html" />
+    <link rel="prev" title="第 8 章：列表" href="Chapter-8-Lists.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python-Data-Structures-Sphinx
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Chapter-6-Strings.html">第 6 章：字符串</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter-7-Files.html">第 7 章：文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter-8-Lists.html">第 8 章：列表</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">第 9 章：字典</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">创建</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">数据选择</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python">Python新旧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key">获取 <code class="docutils literal notranslate"><span class="pre">Key</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#value">获取 <code class="docutils literal notranslate"><span class="pre">Value</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#items">获取一对数据 <code class="docutils literal notranslate"><span class="pre">items</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">逻辑</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">计数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">通常</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get">字典内置函数<code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">找出最大值</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Chapter-10-Tuples.html">第 10 章：元组</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python-Data-Structures-Sphinx</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>第 9 章：字典</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/02-Structure/Chapter-9-Dictionaries.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>第 9 章：字典<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>创建<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>字典用于存储和修改数据，并通过<code class="docutils literal notranslate"><span class="pre">{</span></code> <code class="docutils literal notranslate"><span class="pre">}</span></code>来创建，与<code class="docutils literal notranslate"><span class="pre">list</span></code>不同，我们不再像<code class="docutils literal notranslate"><span class="pre">list</span></code>一样使用<code class="docutils literal notranslate"><span class="pre">index</span></code>来访问内部元素，而使用<code class="docutils literal notranslate"><span class="pre">Key</span></code>来给每个数据打上标签，因此<code class="docutils literal notranslate"><span class="pre">dict</span></code>需要同时存储1对值，<code class="docutils literal notranslate"><span class="pre">Key</span></code>和<code class="docutils literal notranslate"><span class="pre">Value</span></code>，同时<code class="docutils literal notranslate"><span class="pre">Key</span></code>必须是<code class="docutils literal notranslate"><span class="pre">string</span></code>类型。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="p">{</span><span class="n">Key</span><span class="p">:</span> <span class="n">Value</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;money&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;tissues&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;candy&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>空字典可以通过<code class="docutils literal notranslate"><span class="pre">[</span></code> <code class="docutils literal notranslate"><span class="pre">]</span></code>来添加数据。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>D = dict()
+D[&#39;money&#39;] = 12
+D[&#39;tissues&#39;] = 75
+D[&#39;candy&#39;] = 3
+</pre></div>
+</div>
+<ul>
+<li><p>列表中可录入任何python数据类型</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">L_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">76</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">L_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">D_1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;list_1&#39;</span><span class="p">:</span> <span class="n">L_1</span><span class="p">,</span><span class="s1">&#39;list_2&#39;</span><span class="p">:</span> <span class="n">L_2</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">D_1</span>
+<span class="p">{</span><span class="s1">&#39;list_1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">76</span><span class="p">],</span> <span class="s1">&#39;list_2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">12</span><span class="p">]}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">D_2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;list_1&#39;</span><span class="p">:</span> <span class="n">L_1</span><span class="p">,</span><span class="s1">&#39;dict_1&#39;</span><span class="p">:</span> <span class="n">D_1</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">D_2</span>
+<span class="p">{</span><span class="s1">&#39;list_1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">76</span><span class="p">],</span> <span class="s1">&#39;dict_1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;list_1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">76</span><span class="p">],</span> <span class="s1">&#39;list_2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">12</span><span class="p">]}}</span>
+</pre></div>
+</div>
+</li>
+<li><p>字典可以为空</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">D_3</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">D_3</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p>字典内容无序</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">D_4</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;chuck&#39;</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">,</span> <span class="s1">&#39;fred&#39;</span> <span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s1">&#39;jan&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">D_4</span><span class="p">)</span>
+<span class="p">{</span><span class="s1">&#39;jan&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;chuck&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;fred&#39;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>数据选择<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>通过索引<code class="docutils literal notranslate"><span class="pre">Key</span></code>进行选取。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">D</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;money&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;tissues&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;candy&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="s1">&#39;tissues&#39;</span><span class="p">])</span>
+<span class="mi">75</span>
+</pre></div>
+</div>
+<div class="section" id="python">
+<h3>Python新旧<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h3>
+<p>Python更新3.4后，<code class="docutils literal notranslate"><span class="pre">keys()</span></code>不再返回<code class="docutils literal notranslate"><span class="pre">list</span></code>类型，而是使用一种可迭代类型<code class="docutils literal notranslate"><span class="pre">dict_keys</span></code></p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">D</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;money&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;tissues&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;candy&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">D</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="n">dict_keys</span><span class="p">([</span><span class="s1">&#39;money&#39;</span><span class="p">,</span> <span class="s1">&#39;tissues&#39;</span><span class="p">,</span> <span class="s1">&#39;candy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>该效果同样作用于<code class="docutils literal notranslate"><span class="pre">values()</span></code>和<code class="docutils literal notranslate"><span class="pre">items()</span></code>。</p>
+<p>|    函数     |   返回类型    |                             示例                             |
+|:———–:|:————-:|:————————————————————:|
+|  .keys()  |  dict_keys  |          dict_keys([‘money’, ‘tissues’, ‘candy’])         |
+| .valuse() | dict_values |                  dict_values([12, 75, 3])                  |
+| .items()  | dict_items  | dict_items([(‘money’, 12), (‘tissues’, 75), (‘candy’, 3)]) |</p>
+</div>
+<div class="section" id="key">
+<h3>获取 <code class="docutils literal notranslate"><span class="pre">Key</span></code><a class="headerlink" href="#key" title="永久链接至标题">¶</a></h3>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">D</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;money&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;tissues&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;candy&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="p">[</span><span class="s1">&#39;money&#39;</span><span class="p">,</span> <span class="s1">&#39;tissues&#39;</span><span class="p">,</span> <span class="s1">&#39;candy&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">D</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;money&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;tissues&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;candy&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">&#39;money&#39;</span><span class="p">,</span> <span class="s1">&#39;tissues&#39;</span><span class="p">,</span> <span class="s1">&#39;candy&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="value">
+<h3>获取 <code class="docutils literal notranslate"><span class="pre">Value</span></code><a class="headerlink" href="#value" title="永久链接至标题">¶</a></h3>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">D</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;money&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;tissues&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;candy&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="items">
+<h3>获取一对数据 <code class="docutils literal notranslate"><span class="pre">items</span></code><a class="headerlink" href="#items" title="永久链接至标题">¶</a></h3>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">D</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;money&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;tissues&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;candy&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="p">[(</span><span class="s1">&#39;money&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;tissues&#39;</span><span class="p">,</span> <span class="mi">75</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;candy&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p><strong>Example:</strong></p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">D</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;money&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;tissues&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;candy&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">D</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">money</span> <span class="mi">12</span>
+<span class="n">tissues</span> <span class="mi">75</span>
+<span class="n">candy</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>逻辑<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">in</span></code>的查找功能在字典中作用于<code class="docutils literal notranslate"><span class="pre">Key</span></code>。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">D</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;money&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;tissues&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">,</span> <span class="s1">&#39;candy&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;tissues&#39;</span> <span class="ow">in</span> <span class="n">D</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="mi">75</span> <span class="ow">in</span> <span class="n">D</span>
+<span class="bp">False</span>
+</pre></div>
+</div>
+<p><strong>Example:</strong>
+循环中的<code class="docutils literal notranslate"><span class="pre">key</span></code>从字典的<code class="docutils literal notranslate"><span class="pre">Key</span></code>中取值。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">counts</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;chuck&#39;</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">,</span> <span class="s1">&#39;fred&#39;</span> <span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s1">&#39;jan&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">counts</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+<span class="o">...</span>
+<span class="n">chuck</span> <span class="mi">1</span>
+<span class="n">fred</span> <span class="mi">42</span>
+<span class="n">jan</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>计数<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>字典常用来计数。</p>
+<div class="section" id="id6">
+<h3>通常<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p><strong>计数：</strong></p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;csev&#39;</span><span class="p">,</span> <span class="s1">&#39;cwen&#39;</span><span class="p">,</span> <span class="s1">&#39;csev&#39;</span><span class="p">,</span> <span class="s1">&#39;zqian&#39;</span><span class="p">,</span> <span class="s1">&#39;cwen&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+       <span class="n">counts</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">counts</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;csev&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;cwen&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;zqian&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get">
+<h3>字典内置函数<code class="docutils literal notranslate"><span class="pre">get()</span></code><a class="headerlink" href="#get" title="永久链接至标题">¶</a></h3>
+<p><strong>函数说明：</strong>
+<code class="docutils literal notranslate"><span class="pre">get()</span></code>函数用于获取<code class="docutils literal notranslate"><span class="pre">Value</span></code>，不会抛出<code class="docutils literal notranslate"><span class="pre">error</span></code>。
+<code class="docutils literal notranslate"><span class="pre">D.get(Key,</span> <span class="pre">DefaultValue)</span></code>：如果在字典<code class="docutils literal notranslate"><span class="pre">D</span></code>中存在<code class="docutils literal notranslate"><span class="pre">Key</span></code>，则<code class="docutils literal notranslate"><span class="pre">pass</span></code>，如果不存在，则返回初值<code class="docutils literal notranslate"><span class="pre">DefaultValue</span></code>。</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">D</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;chuck&#39;</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">,</span> <span class="s1">&#39;fred&#39;</span> <span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s1">&#39;jan&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">D</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fred&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="mi">42</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">D</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;frd&#39;</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span>
+<span class="mi">13</span>
+</pre></div>
+</div>
+<p><strong>计数：</strong></p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;csev&#39;</span><span class="p">,</span> <span class="s1">&#39;cwen&#39;</span><span class="p">,</span> <span class="s1">&#39;csev&#39;</span><span class="p">,</span> <span class="s1">&#39;zqian&#39;</span><span class="p">,</span> <span class="s1">&#39;cwen&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span> <span class="p">:</span>
+    <span class="n">counts</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;csev&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;cwen&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;zqian&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>找出最大值<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">bigcount</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">bigword</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="k">for</span> <span class="n">word</span><span class="p">,</span><span class="n">count</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">bigcount</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">bigcount</span><span class="p">:</span>
+        <span class="n">bigword</span> <span class="o">=</span> <span class="n">word</span>
+        <span class="n">bigcount</span> <span class="o">=</span> <span class="n">count</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bigword</span><span class="p">,</span><span class="n">bigcount</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Chapter-10-Tuples.html" class="btn btn-neutral float-right" title="第 10 章：元组" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Chapter-8-Lists.html" class="btn btn-neutral float-left" title="第 8 章：列表" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, seel
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
